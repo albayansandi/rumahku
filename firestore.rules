@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Shared Store Directory - Accessible everywhere across all devices
+    match /shared_stores/{storeId} {
+      allow read: if true;
+      allow write: if true; // Managed via RUMAHKU Admin Portal
+      
+      match /products/{productId} {
+        allow read: if true;
+        allow write: if true; // Managed via RUMAHKU Admin Portal
+      }
+    }
+    
+    // Default deny all other paths
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

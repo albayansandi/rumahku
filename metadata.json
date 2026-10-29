@@ -1,0 +1,8 @@
+{
+  "name": "RUMAHKU — Smart Home Budget Planner",
+  "description": "Aplikasi cerdas dan akurat untuk perencanaan anggaran pembangunan rumah, kalkulator material, dan pelacakan keuangan real-time.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

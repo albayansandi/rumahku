@@ -1,0 +1,57 @@
+{
+  "entities": {
+    "Store": {
+      "title": "Store",
+      "description": "Building material store or supplier shared across all devices in RUMAHKU",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string", "maxLength": 150 },
+        "slogan": { "type": "string", "maxLength": 200 },
+        "category": { "type": "string", "maxLength": 100 },
+        "city": { "type": "string", "maxLength": 100 },
+        "address": { "type": "string", "maxLength": 300 },
+        "phone": { "type": "string", "maxLength": 50 },
+        "whatsapp": { "type": "string", "maxLength": 50 },
+        "openingHours": { "type": "string", "maxLength": 100 },
+        "rating": { "type": "number" },
+        "reviewCount": { "type": "number" },
+        "isVerified": { "type": "boolean" },
+        "promoText": { "type": "string", "maxLength": 200 },
+        "catalogCount": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "name", "city", "address", "whatsapp"]
+    },
+    "StoreProduct": {
+      "title": "StoreProduct",
+      "description": "Building material product and price listed under a specific store",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "storeId": { "type": "string" },
+        "name": { "type": "string", "maxLength": 150 },
+        "category": { "type": "string", "maxLength": 100 },
+        "unit": { "type": "string", "maxLength": 50 },
+        "price": { "type": "number" },
+        "inStock": { "type": "boolean" },
+        "promoText": { "type": "string", "maxLength": 200 },
+        "minOrder": { "type": "string", "maxLength": 50 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "storeId", "name", "unit", "price"]
+    }
+  },
+  "firestore": {
+    "/shared_stores/{storeId}": {
+      "schema": "Store",
+      "description": "Shared directory of building material stores visible on all devices"
+    },
+    "/shared_stores/{storeId}/products/{productId}": {
+      "schema": "StoreProduct",
+      "description": "Material catalog and price lists under a shared store"
+    }
+  }
+}
